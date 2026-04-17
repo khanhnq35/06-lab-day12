@@ -13,7 +13,7 @@ services:
       - key: ENVIRONMENT
         value: production
       - key: AGENT_API_KEY
-        generateValue: true
+        value: khanh-final-secure-key-2026
       - key: JWT_SECRET
         generateValue: true
       - key: REDIS_URL
