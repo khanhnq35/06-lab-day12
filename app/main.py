@@ -114,6 +114,7 @@ class TokenResponse(BaseModel):
 
 class AskRequest(BaseModel):
     question: str = Field(..., min_length=1, max_length=2000)
+    user_id: str = None
 
 class AskResponse(BaseModel):
     question: str
@@ -141,7 +142,7 @@ async def ask_agent(
     # Priority 1: JWT Auth, Fallback: API Key
     user: dict = Depends(verify_any_auth), 
 ):
-    user_id = user["username"]
+    user_id = body.user_id or user["username"]
     
     # 1. Rate Limiting (Redis-backed if available)
     rate_limiter.check(user_id)
