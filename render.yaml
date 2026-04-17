@@ -7,7 +7,6 @@ services:
     # Khi dùng file này để deploy Blueprint, rootDir nên là '.' vì nó nằm sẵn trong folder đó
     rootDir: .
     dockerContext: .
-    dockerTarget: production
     healthCheckPath: /health
     autoDeploy: true
     envVars:
